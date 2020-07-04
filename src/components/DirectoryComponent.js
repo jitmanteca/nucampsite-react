@@ -7,6 +7,7 @@ import {
   CardBody,
   CardTitle,
 } from "reactstrap";
+import CampsiteInfoComponent from "./CampsiteInfoComponent";
 
 class Directory extends Component {
   constructor(props) {
@@ -20,7 +21,7 @@ class Directory extends Component {
     this.setState({ selectedCampsite: campsite });
   }
 
-  renderSelectedCampsite(campsite) {
+  /* renderSelectedCampsite(campsite) {
     if (campsite) {
       return (
         <Card>
@@ -33,7 +34,7 @@ class Directory extends Component {
       );
     }
     return <div />;
-  }
+  }*/
 
   render() {
     const directory = this.props.campsites.map((campsite) => {
@@ -52,11 +53,7 @@ class Directory extends Component {
     return (
       <div className="container">
         <div className="row">{directory}</div>
-        <div className="row">
-          <div className="col-md-5 m-1">
-            {this.renderSelectedCampsite(this.state.selectedCampsite)}
-          </div>
-        </div>
+        <CampsiteInfoComponent campsite={this.state.selectedCampsite} />
       </div>
     );
   }
